@@ -1,4 +1,4 @@
-#define debug
+// #define debug
 
 #include<stdio.h>
 #include<cstdlib>
