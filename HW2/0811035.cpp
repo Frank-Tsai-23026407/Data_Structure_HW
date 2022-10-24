@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "stack.h"
+#include "stack.cpp"
 
 int getname(char* name, int capacity, FILE* file)
 {
