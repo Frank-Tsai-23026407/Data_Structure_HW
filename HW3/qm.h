@@ -15,9 +15,9 @@ class implements
 private: 
     bool builded;
     int length;
-    ELEMENT* element;
-    bool implemented;    
+    ELEMENT* element;    
 public:
+    bool implemented;
     implements();
     ~implements();
     int generate(int size);
@@ -28,6 +28,7 @@ public:
     int print();
     int num_one();
     int fprint(FILE *file);
+    void generate_and_copy(implements &t);
 };
 
 #endif

@@ -24,7 +24,10 @@ int implements::set_element(int index, ELEMENT value)
 implements::~implements()
 {
     if(builded)
+    {
         delete [] element;
+        builded = false;
+    }
 }
 
 int implements::set_value(int value)
@@ -103,4 +106,13 @@ int implements::fprint(FILE* file)
         fprintf(file, "%c", element[i]);
     }
     return 0;
+}
+
+void implements::generate_and_copy(implements &t)
+{
+    generate(t.length);
+    for(int i = 0; i < length; i++)
+    {
+        element[i] = t.element[i];
+    }
 }

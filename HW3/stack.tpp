@@ -11,11 +11,12 @@ int stack<T>::push(T data)
 }
 
 template <class T>
-int stack<T>::pop(T &data)
+bool stack<T>::pop(T &data)
 {
+    if(isEmpty()) return false;
     data = first->data;
     first = first->link;
-    return 0;
+    return true;
 }
 
 template <class T>
@@ -34,7 +35,20 @@ int stack<T>::print()
 template <class T>
 bool stack<T>::isEmpty()
 {
-    return first == 0;
+    if(first) return false;
+    return true;
+}
+
+template <class T>
+void stack<T>::inherient(stack<T> i)
+{
+    first = i.first;
+}
+
+template <class T>
+void stack<T>::clear()
+{
+    first = 0;
 }
 
 template <class T>
@@ -68,4 +82,40 @@ int stack<T>::fprint(FILE *file)
     }
     fprintf(file, "\n");
     return 0;
+}
+
+template <class T>
+stackIterater<T>::stackIterater()
+{
+}
+
+template <class T>
+void stackIterater<T>::iterater(stack<T> s)
+{
+    first = s.first;
+    here  = s.first;
+}
+
+template <class T>
+stackIterater<T>::~stackIterater()
+{
+}
+
+template <class T>
+bool stackIterater<T>::next(T &data)
+{
+    if(here)
+    {
+        data = here->data;
+        here = here->link;
+        return true;
+    }
+    else
+        return false;
+}
+
+template <class T>
+void stackIterater<T>::re()
+{
+    here = first;
 }
