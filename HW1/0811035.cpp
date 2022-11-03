@@ -1,4 +1,4 @@
-// #define debug
+#define debug
 
 #include<stdio.h>
 #include<cstdlib>
@@ -177,10 +177,12 @@ int write_polynomial(char* file_name, T dividend, T divisor, T quotient)
 #endif
     for(i = divisor->order-1; i > 0; i--)
     {
-        fprintf(output_file, "%d ", dividend->coeffecient[i]);
+    	if(dividend->coeffecient[i]){
+        	fprintf(output_file, "%d ", dividend->coeffecient[i]);
 #ifdef debug
-        printf("%d ", dividend->coeffecient[i]);
+        	printf("%d ", dividend->coeffecient[i]);
 #endif
+		}
     }
     fprintf(output_file, "%d ", dividend->coeffecient[i]);
 #ifdef debug
