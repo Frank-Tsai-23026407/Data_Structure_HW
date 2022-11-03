@@ -1,6 +1,8 @@
 #ifndef _STACK_H
 #define _STACK_H
 
+#include<stdio.h>
+
 template <class T> class stack;
 
 template <class T>
@@ -22,6 +24,8 @@ public:
     int push(T data);
     int pop(T &data);
     int print();
+    bool isEmpty();
+    int fprint(FILE *file);
 };
 
 #include "stack.tpp"

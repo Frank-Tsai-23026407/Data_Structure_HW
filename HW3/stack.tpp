@@ -1,3 +1,5 @@
+#include <stdio.h>
+
 template <class T>
 int stack<T>::push(T data)
 {
@@ -23,9 +25,16 @@ int stack<T>::print()
     while(pointer)
     {
         pointer->data.print();
+        printf(" ");
         pointer = pointer->link;
     }
     return 0;
+}
+
+template <class T>
+bool stack<T>::isEmpty()
+{
+    return first == 0;
 }
 
 template <class T>
@@ -37,11 +46,26 @@ stack<T>::stack()
 template <class T>
 stack<T>::~stack()
 {
-    stackNode* next;
+    stackNode<T>* next;
     while(first)
     {
         next = first->link;
         delete first;
         first = next;
     }
+}
+
+
+template <class T>
+int stack<T>::fprint(FILE *file)
+{
+    stackNode<T> *pointer = first;
+    while(pointer)
+    {
+        pointer->data.fprint(file);
+        if(pointer->link) fprintf(file, ", ");
+        pointer = pointer->link;
+    }
+    fprintf(file, "\n");
+    return 0;
 }
