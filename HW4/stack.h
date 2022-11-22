@@ -1,8 +1,6 @@
 #ifndef _STACK_H
 #define _STACK_H
 
-#include<stdio.h>
-
 template <class T> class stack;
 template <class T> class stackNode;
 template <class T> class stackIterater;

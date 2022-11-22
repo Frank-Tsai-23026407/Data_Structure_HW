@@ -1,0 +1,8 @@
+root = 3
+UNSAT
+root = 4
+SAT
+0: 1
+1: 0
+2: 0
+5: 0
